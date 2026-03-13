@@ -4,7 +4,52 @@ A practical guide to prompting Claude effectively and maximizing your Claude Cod
 
 ---
 
-## 1. Understanding the Context Window
+## 1. Transferring from ChatGPT (or Other Platforms) to Claude
+
+If you're coming from ChatGPT, Gemini, Copilot, or another AI assistant, Claude will feel familiar in some ways and very different in others. Here's what to expect.
+
+### What's Similar
+
+- You still type natural language prompts and get AI responses
+- You can ask it to write, explain, debug, and refactor code
+- It understands context from your conversation history
+
+### What's Different
+
+| ChatGPT / Others | Claude Code |
+|-------------------|-------------|
+| Web chat interface | Terminal-based CLI (or IDE extension) |
+| General-purpose assistant | Purpose-built for software engineering |
+| No file access | Reads and edits your actual project files |
+| No terminal access | Runs shell commands directly |
+| Conversation stays in browser | Conversation lives in your terminal session |
+| Memory is automatic/opaque | Memory is file-based and you control it |
+| One conversation thread | Multiple terminal windows for parallel work |
+
+### Key Mindset Shifts
+
+1. **Claude works in your codebase, not a sandbox.** When you ask Claude Code to edit a file, it edits the real file on your machine. This is powerful but means you should commit frequently.
+
+2. **You don't need to paste code into the chat.** Claude can read your files directly. Instead of copying code into the prompt, just say "read src/app.js and fix the bug on line 42."
+
+3. **Prompts need to be more precise.** ChatGPT is designed to be conversational and forgiving. Claude Code is more literal — it does exactly what you ask, so vague prompts lead to unexpected changes. (More on this in Section 4.)
+
+4. **Context management is your job.** ChatGPT handles context behind the scenes. With Claude Code, you need to actively manage your context window — clearing it, splitting work across windows, and keeping memory lean.
+
+5. **You control the memory.** Instead of hoping the AI "remembers" you, Claude's memory system is transparent — you can see what it stores, edit it, and prune it.
+
+### Quick Start for ChatGPT Users
+
+1. Install Claude Code CLI
+2. Navigate to your project folder in the terminal
+3. Run `claude` to start a conversation
+4. Try: "Read the README and summarize what this project does"
+5. Try: "List all the files in src/ and explain the project structure"
+6. You're already doing things ChatGPT can't do
+
+---
+
+## 2. Understanding the Context Window
 
 The context window is the total amount of information Claude can "see" at once — your conversation history, code files it reads, tool outputs, and memory files all count toward it.
 
@@ -28,7 +73,7 @@ Before clearing context, make sure any important decisions or findings are saved
 
 ---
 
-## 2. Memory Files — Making Claude Remember (Without Wasting Context)
+## 3. Memory Files — Making Claude Remember (Without Wasting Context)
 
 Claude Code has a persistent memory system that carries information between conversations. This is powerful but has a cost: every memory file gets loaded into your context window at the start of each conversation.
 
@@ -65,7 +110,7 @@ Claude Code has a persistent memory system that carries information between conv
 
 ---
 
-## 3. Writing Better Prompts — Be Clear, Detailed, and Explicit
+## 4. Writing Better Prompts — Be Clear, Detailed, and Explicit
 
 ### The Mental Model
 
@@ -92,11 +137,23 @@ Benefits:
 
 ### For Larger Projects (Ramiro's Method)
 
-**Create separate feature documents for each feature you want built.** Each document should clearly describe:
+**Create a series of separate feature documents — aim for 9-10 documents that each explain one feature you want built.** Each document should clearly describe:
 - What the feature does
 - How it should behave
 - What the acceptance criteria are
 - Any constraints or edge cases
+
+For a typical project, you might have documents like:
+1. `user-authentication.md` — Login, signup, password reset
+2. `dashboard.md` — Main user dashboard layout and data
+3. `notifications.md` — Email and in-app notification system
+4. `settings.md` — User preferences and account management
+5. `api-integration.md` — Third-party API connections
+6. `search.md` — Search functionality and filters
+7. `payments.md` — Billing and subscription handling
+8. `admin-panel.md` — Admin tools and user management
+9. `analytics.md` — Usage tracking and reporting
+10. `deployment.md` — CI/CD, hosting, environment setup
 
 This is formalized in this repo as the **FRED (Feature Requirement Document)** system — see `CLAUDE.md` for the template.
 
@@ -105,10 +162,11 @@ Why this works:
 - Gives Claude a complete spec to work from (fewer misunderstandings)
 - Creates documentation as a side effect
 - Makes it easy to hand off features to different conversation windows
+- Each document maps to one terminal window (see Section 5)
 
 ---
 
-## 4. Terminal Window Management (Jarrett's Method)
+## 5. Terminal Window Management (Jarrett's Method)
 
 ### One Terminal Window Per Feature
 
@@ -137,11 +195,61 @@ Every time you start working on something new — a new feature, a new bug, a ne
 
 ---
 
-## 5. Token Optimization — Maximizing Your Daily Usage
+## 6. IDE vs CLI — Choosing Your Interface
+
+Claude is available in two main forms: the **CLI (Command Line Interface)** and **IDE extensions** (VS Code, JetBrains, etc.). Each has strengths.
+
+### CLI (Terminal)
+
+**Best for:** Power users, full control, complex multi-step tasks
+
+| Pros | Cons |
+|------|------|
+| Full terminal access — Claude can run any command | No visual file browser |
+| Multiple windows for parallel work | Steeper learning curve |
+| Direct file system access | No inline code highlighting |
+| Memory and CLAUDE.md system | Text-only interface |
+| Works over SSH / remote machines | |
+
+**Use the CLI when:**
+- You're building features from scratch
+- You need Claude to run tests, deploy, or manage git
+- You want maximum control over context and memory
+- You're working on backend / infrastructure tasks
+
+### IDE Extensions (VS Code, Cursor, etc.)
+
+**Best for:** Visual learners, front-end work, code review
+
+| Pros | Cons |
+|------|------|
+| See code changes inline | Less control over context |
+| Visual diff view | May not have full terminal access |
+| Click to navigate files | Memory system may differ |
+| Syntax highlighting in context | IDE-specific quirks |
+| Good for front-end / UI work | |
+
+**Use the IDE when:**
+- You're doing front-end work and want to see changes visually
+- You're reviewing or refactoring existing code
+- You prefer a GUI over the terminal
+- You're new to Claude and want a gentler learning curve
+
+### Recommendation
+
+**Start with the CLI** to understand how Claude really works — context, memory, tokens, and all. Once you're comfortable, add the IDE extension for visual tasks. Many power users use both: CLI for building, IDE for reviewing.
+
+---
+
+## 7. Token Optimization — Maximizing Your Daily Usage
 
 ### How the Token System Works
 
 Claude's usage limits operate on a **rolling 5-hour window.** Your tokens don't reset at midnight — they reset 5 hours after you started using them.
+
+### Checking Your Token Usage
+
+Use `/usage` in Claude Code to see your current token consumption and when your next reset happens. **[TODO: Add screenshots showing the token usage display and reset timer here]**
 
 ### The Math
 
@@ -178,9 +286,66 @@ The difference between a casual user and an optimized user isn't skill — it's 
 
 ---
 
+## 8. Claude Model Modes — Haiku, Sonnet, and Opus
+
+Claude isn't one model — it's a family of models with different speed/capability tradeoffs. You can switch between them in Claude Code using the `/model` command or keyboard shortcuts.
+
+### The Three Models
+
+| Model | Speed | Capability | Cost (Tokens) | Best For |
+|-------|-------|-----------|---------------|----------|
+| **Haiku** | Fastest | Good | Lowest | Quick questions, simple edits, boilerplate |
+| **Sonnet** | Fast | Great | Medium | Most coding tasks, debugging, features |
+| **Opus** | Slower | Best | Highest | Complex architecture, difficult bugs, nuanced reasoning |
+
+### When to Use Each
+
+#### Haiku (Fast Mode)
+- "What does this function do?"
+- "Rename this variable across the file"
+- "Add a comment to this function"
+- Simple, mechanical tasks where speed matters more than depth
+- Toggle with `/fast` in Claude Code
+
+#### Sonnet (Default)
+- Building features from a FRED document
+- Debugging most issues
+- Writing tests
+- Code review and refactoring
+- This is your **daily driver** — it handles 80% of tasks well
+
+#### Opus (Heavy Lifting)
+- Complex multi-file architectural changes
+- Debugging subtle, hard-to-reproduce issues
+- Tasks requiring deep reasoning across many files
+- When Sonnet gives you a wrong answer and you need more horsepower
+- Planning and designing system architecture
+
+### Switching Models
+
+In Claude Code:
+- `/model` — select a model interactively
+- `/model opus` — switch directly to Opus
+- `/model sonnet` — switch directly to Sonnet
+- `/model haiku` — switch directly to Haiku
+
+### The Strategy
+
+**Start with Sonnet.** If the task is trivial, drop to Haiku to save tokens. If Sonnet isn't getting it right or the problem is genuinely complex, escalate to Opus. Think of it like gears:
+
+- **Haiku** = 1st gear — quick acceleration, simple tasks
+- **Sonnet** = 3rd gear — cruising speed, everyday work
+- **Opus** = 5th gear — maximum power, complex problems
+
+### Pro Tip
+
+Using Haiku for simple tasks conserves your token budget, leaving more room for Opus when you really need it. Don't burn Opus tokens on "add a CSS class" — that's a Haiku job.
+
+---
+
 ## Putting It All Together
 
-Here's the optimized daily workflow combining all five tips:
+Here's the optimized daily workflow combining all eight topics:
 
 ### Morning (Window 1)
 1. Start Claude early — even just a planning prompt to start the timer
@@ -204,10 +369,13 @@ Here's the optimized daily workflow combining all five tips:
 
 | Principle | Rule of Thumb |
 |-----------|--------------|
+| From ChatGPT | Claude works in your real codebase — commit often |
 | Context window | Clear at 30-40% usage |
 | Memory files | Keep MEMORY.md under 200 lines |
 | Prompt quality | Write in a doc first, be explicit |
-| Feature scope | One FRED per feature |
+| Feature scope | 9-10 FREDs, one per feature |
 | Terminal windows | One window per task |
+| IDE vs CLI | CLI for building, IDE for reviewing |
 | Token windows | 5-hour rolling reset, start early |
+| Model modes | Haiku=quick, Sonnet=daily, Opus=complex |
 | Commits | Small, frequent, always push |

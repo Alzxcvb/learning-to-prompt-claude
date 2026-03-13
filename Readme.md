@@ -14,9 +14,12 @@ Built by Alex Coffman, with tips from Ramiro and Jarrett.
 
 | Tip | Key Takeaway |
 |-----|-------------|
+| From ChatGPT | Claude works in your real codebase, not a sandbox |
 | Context Window | Clear context at 30-40% usage |
 | Memory Files | Keep them lean — they eat context too |
 | Prompt Clarity | Write detailed, explicit instructions |
-| Feature Docs | One doc per feature for larger projects |
+| Feature Docs | 9-10 docs, one per feature |
 | Terminal Windows | One window per feature/task |
+| IDE vs CLI | CLI for building, IDE for reviewing |
 | Token Optimization | Plan your 5-hour rolling windows |
+| Model Modes | Haiku=quick, Sonnet=daily, Opus=complex |

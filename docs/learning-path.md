@@ -6,19 +6,26 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 
 ## Level 1: Getting Started (Day 1)
 
-### 1.1 — Install and Run Claude Code
+### 1.1 — Transitioning from ChatGPT / Other Platforms
+- **Read:** Presentation Summary, Section 1
+- Understand the key differences: Claude works in your real codebase, not a sandbox
+- You don't paste code — Claude reads your files directly
+- **Exercise:** If you've used ChatGPT for coding, try the same task in Claude Code and notice the difference.
+
+### 1.2 — Install and Run Claude Code
 - Install Claude Code CLI
 - Open a terminal and start your first conversation
 - Try a simple ask: "Explain what this file does" on any code file
 
-### 1.2 — Learn the Basic Commands
+### 1.3 — Learn the Basic Commands
 - `/help` — see available commands
 - `/usage` — check your context and token usage
 - `/clear` — reset your conversation context
+- `/model` — switch between Haiku, Sonnet, and Opus
 - Up/down arrows — navigate command history
 
-### 1.3 — Understand What the Context Window Is
-- **Read:** Presentation Summary, Section 1
+### 1.4 — Understand What the Context Window Is
+- **Read:** Presentation Summary, Section 2
 - **Exercise:** Start a conversation, ask 10-15 questions, then check `/usage`. Notice how it grows.
 - **Key takeaway:** Everything you say and everything Claude reads counts toward the limit.
 
@@ -27,7 +34,7 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 ## Level 2: Writing Good Prompts (Day 2-3)
 
 ### 2.1 — The "Write It First" Method
-- **Read:** Presentation Summary, Section 3
+- **Read:** Presentation Summary, Section 4
 - **Exercise:** Pick a small task (e.g., "add a footer to my webpage"). Write the full prompt in a text editor first. Include: what you want, where it goes, what it should look like, and any constraints.
 - **Key takeaway:** Time spent writing a clear prompt saves 5x the time you'd spend on follow-up corrections.
 
@@ -45,11 +52,11 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 ## Level 3: Context Management (Day 4-5)
 
 ### 3.1 — The 30-40% Rule
-- **Read:** Presentation Summary, Section 1
+- **Read:** Presentation Summary, Section 2
 - **Exercise:** Work on a task and monitor `/usage`. When you hit 30%, clear context and continue. Notice how Claude's responses improve with fresh context.
 
 ### 3.2 — One Window Per Task
-- **Read:** Presentation Summary, Section 4
+- **Read:** Presentation Summary, Section 5
 - **Exercise:** Work on two separate tasks. Use a different terminal window for each. Compare this to doing both in one window.
 - **Key takeaway:** Focused conversations produce better results than long, meandering ones.
 
@@ -62,7 +69,7 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 ## Level 4: Memory and Persistence (Day 6-7)
 
 ### 4.1 — Set Up Your Memory File
-- **Read:** Presentation Summary, Section 2
+- **Read:** Presentation Summary, Section 3
 - **Exercise:** Tell Claude about yourself — your role, experience level, and preferences. Check that it saved to memory. Start a new conversation and verify Claude remembers.
 
 ### 4.2 — Learn What to Store vs. What to Skip
@@ -79,12 +86,12 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 ## Level 5: Project Organization (Week 2)
 
 ### 5.1 — Feature Requirement Documents (FREDs)
-- **Read:** Presentation Summary, Section 3 (Ramiro's Method) + CLAUDE.md FRED template
+- **Read:** Presentation Summary, Section 4 (Ramiro's Method) + CLAUDE.md FRED template
 - **Exercise:** Pick a feature you want to build. Write a complete FRED before asking Claude to implement anything.
 - **Key takeaway:** 20 minutes of planning saves hours of back-and-forth.
 
 ### 5.2 — Multi-Window Workflow
-- **Read:** Presentation Summary, Section 4 (Jarrett's Method)
+- **Read:** Presentation Summary, Section 5 (Jarrett's Method)
 - **Exercise:** Plan a small project with 3 features. Build each in its own terminal window. Practice the commit-and-push rhythm.
 
 ### 5.3 — Commit Discipline
@@ -94,17 +101,37 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 
 ---
 
-## Level 6: Token Optimization (Week 2-3)
+## Level 6: IDE vs CLI & Model Modes (Week 2)
 
-### 6.1 — Understand the 5-Hour Rolling Window
-- **Read:** Presentation Summary, Section 5
+### 6.1 — Try Both Interfaces
+- **Read:** Presentation Summary, Section 6
+- **Exercise:** Do the same task in both CLI and IDE. Build a function in the terminal, then refactor it using the VS Code extension. Notice the strengths of each.
+- **Key takeaway:** CLI for building and full control, IDE for visual review and front-end work.
+
+### 6.2 — Learn the Model Modes
+- **Read:** Presentation Summary, Section 8
+- **Exercise:** Take a simple task and run it on Haiku (`/model haiku`). Then take a complex debugging task and use Opus (`/model opus`). Compare the quality and speed.
+- **Key takeaway:** Use Haiku for quick/simple, Sonnet for everyday, Opus for hard problems. Switching models saves tokens.
+
+### 6.3 — Develop Your Model Strategy
+- Start every session on Sonnet (default)
+- Drop to Haiku for boilerplate, renaming, simple questions
+- Escalate to Opus when Sonnet fails or the task is genuinely complex
+- **Exercise:** Track which model you use for a full day. Were there tasks where you used Opus but Haiku would have been fine?
+
+---
+
+## Level 7: Token Optimization (Week 2-3)
+
+### 7.1 — Understand the 5-Hour Rolling Window
+- **Read:** Presentation Summary, Section 7
 - **Exercise:** Track when you start using Claude and when you hit limits. Map your actual usage windows.
 
-### 6.2 — Plan Your Day Around Token Resets
+### 7.2 — Plan Your Day Around Token Resets
 - **Exercise:** Try the "early start" strategy. Begin with a planning prompt at 7am, do real work by 9am, and notice that your tokens reset by noon.
 - **Key takeaway:** 2x or 3x tokens isn't about paying more — it's about starting earlier.
 
-### 6.3 — Combine Everything
+### 7.3 — Combine Everything
 - Start early (token optimization)
 - Plan with FREDs (prompt quality)
 - One window per feature (context management)
@@ -128,6 +155,8 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 4. **One mega-window** — doing everything in one conversation
 5. **Ignoring token scheduling** — starting late and hitting limits by 3pm
 6. **Not committing** — losing work when context clears or sessions end
+7. **Using Opus for everything** — burns tokens fast on tasks Haiku could handle
+8. **Treating Claude like ChatGPT** — pasting code instead of letting Claude read files directly
 
 ---
 
