@@ -139,6 +139,45 @@ The context window is the total amount of information Claude can "see" at once �
 
 Before clearing context, make sure any important decisions or findings are saved to your memory file or committed to code. Once you clear, it's gone.
 
+### Context Pollution — Why Mistakes Stick Around
+
+This is one of the most important things to understand: **when Claude makes a mistake, that mistake stays in the context window even after you correct it.** The wrong code, the bad logic, the incorrect approach — it's all still "visible" to Claude in the conversation history. Telling Claude "that was wrong, do it differently" doesn't erase the mistake — it just adds more text on top of it.
+
+This means Claude can keep getting pulled back toward its original wrong answer, especially as the context fills up and it starts losing track of which instructions are current.
+
+#### What to Do When Claude Goes Off Track
+
+**Option A: Full Clear (Nuclear Option)**
+- `/clear` and start fresh
+- Best when the conversation is thoroughly derailed or past 30-40% anyway
+- You lose all context, so save important stuff to memory first
+
+**Option B: Triple Escape + Retcon (Surgical Option)**
+- Press `Escape` three times to cancel/interrupt the current response
+- Then **go back and restate your original intent clearly** — essentially retcon the conversation back to the last good state
+- Rewrite your prompt as if the mistake never happened
+- This works when the mistake was recent and the rest of the context is still valuable
+
+#### The Key Insight
+
+Correcting Claude ≠ erasing the mistake. Every "no, not that" message adds noise to the context. If you've gone back and forth 3+ times on the same issue, you're better off clearing and starting clean than adding another correction on top of the pile.
+
+### Using `!` to Run Terminal Commands
+
+You don't need to leave Claude to run shell commands. **Type `!` followed by your command** to execute it directly from within the Claude Code session:
+
+```
+! git status
+! npm run test
+! ls -la src/
+```
+
+This is useful when you want to:
+- Check something quickly without breaking your conversation flow
+- Run a test to verify Claude's changes worked
+- Check git status before asking Claude to commit
+- Run any terminal command without opening a separate window
+
 ---
 
 ## 3. Memory Files — Making Claude Remember (Without Wasting Context)

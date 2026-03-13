@@ -32,6 +32,8 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 - `/usage` — check your context and token usage
 - `/clear` — reset your conversation context
 - `/model` — switch between Haiku, Sonnet, and Opus
+- `!` followed by a command — run terminal commands without leaving Claude (e.g., `! git status`)
+- `Escape` x3 — cancel/interrupt the current response
 - Up/down arrows — navigate command history
 
 ### 1.5 — Understand What the Context Window Is
@@ -73,6 +75,15 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 ### 3.3 — When to Clear vs. When to Continue
 - **Clear when:** switching tasks, at 30-40% usage, Claude seems confused, you're starting something unrelated
 - **Continue when:** you're iterating on the same piece of code, Claude needs the conversation history to understand your changes
+
+### 3.4 — Context Pollution — Mistakes That Won't Go Away
+- **Read:** Presentation Summary, Section 2 — "Context Pollution"
+- **The problem:** When Claude makes a mistake, that mistake stays in the context even after you correct it. Claude keeps "seeing" its own wrong answer and can drift back toward it.
+- **Exercise:** Next time Claude gets something wrong, try correcting it 2-3 times. Notice how it struggles. Then clear context, restate the task cleanly, and watch it get it right on the first try.
+- **Two recovery options:**
+  - **Full clear** (`/clear`) — start fresh, best when the conversation is derailed
+  - **Triple Escape + Retcon** — press `Escape` 3x to interrupt, then restate your original intent as if the mistake never happened
+- **Key takeaway:** Correcting Claude doesn't erase the mistake from context. After 3+ back-and-forths on the same issue, clear and start over — it's faster.
 
 ---
 
