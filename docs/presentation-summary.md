@@ -38,14 +38,82 @@ If you're coming from ChatGPT, Gemini, Copilot, or another AI assistant, Claude 
 
 5. **You control the memory.** Instead of hoping the AI "remembers" you, Claude's memory system is transparent — you can see what it stores, edit it, and prune it.
 
+### Migrating Your Memory — Extracting What Your Old AI Knows About You
+
+Before switching platforms, you should **extract everything your current AI has learned about you** so you can bring it with you. This creates a portable "master memory file" that works with any platform — not just Claude.
+
+#### Step 1: Ask Your Current AI to Dump Its Memory
+
+Open a conversation with ChatGPT (or whatever you're using) and prompt:
+
+> "List every single memory you have about me. Include preferences, facts, project details, coding style, and anything else you've stored."
+
+Review the list. If it looks incomplete, follow up:
+
+> "What additional information would you need from me to fully capture everything you know, so I can transfer this knowledge to a new AI assistant?"
+
+This second prompt is key — it gets the AI to identify gaps in its own memory and ask you to fill them in. Answer its questions, then ask for the updated full list.
+
+#### Step 2: Download Your Memories from the Platform
+
+Most platforms let you export your stored memories:
+
+- **ChatGPT:** Go to Settings → Personalization → Memory → Manage Memory. You can view and copy all stored memories. You can also go to Settings → Data Controls → Export Data to download everything.
+- **Gemini:** Check Settings → Extensions & Activity for saved preferences.
+- **Copilot:** Check your Microsoft account settings for stored preferences.
+
+Copy or download everything you can find.
+
+#### Step 3: Create a Master Memory Document
+
+Combine everything from Steps 1 and 2 into a single, clean document. Organize it into sections:
+
+```markdown
+# Master Memory File — [Your Name]
+
+## About Me
+- Role, background, experience level
+- What I'm working on and why
+
+## Coding Preferences
+- Languages, frameworks, tools I use
+- Style preferences (tabs vs spaces, naming conventions, etc.)
+- How I like explanations (brief vs detailed, examples vs theory)
+
+## Active Projects
+- Project names, repos, status, tech stack
+- Key decisions and context for each
+
+## Workflow Preferences
+- How I like to work (commit frequency, PR style, etc.)
+- Things I've asked the AI NOT to do
+- Things I always want the AI to do
+
+## Key Knowledge
+- Domain-specific knowledge relevant to my work
+- Important decisions and why they were made
+```
+
+#### Why This Matters
+
+This master document is **platform-independent.** You can:
+- Feed it to Claude's memory system (paste it or ask Claude to save it)
+- Bring it to any future AI platform
+- Use it as onboarding context for any new tool
+- Update it as your preferences evolve
+
+You're no longer locked into any single AI's memory system. Your context travels with you.
+
 ### Quick Start for ChatGPT Users
 
-1. Install Claude Code CLI
-2. Navigate to your project folder in the terminal
-3. Run `claude` to start a conversation
-4. Try: "Read the README and summarize what this project does"
-5. Try: "List all the files in src/ and explain the project structure"
-6. You're already doing things ChatGPT can't do
+1. Export your ChatGPT memories (see above)
+2. Install Claude Code CLI
+3. Navigate to your project folder in the terminal
+4. Run `claude` to start a conversation
+5. Paste your master memory file and say "Save this to your memory system"
+6. Try: "Read the README and summarize what this project does"
+7. Try: "List all the files in src/ and explain the project structure"
+8. You're already doing things ChatGPT can't do — with all your context intact
 
 ---
 

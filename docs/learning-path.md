@@ -12,19 +12,29 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 - You don't paste code — Claude reads your files directly
 - **Exercise:** If you've used ChatGPT for coding, try the same task in Claude Code and notice the difference.
 
-### 1.2 — Install and Run Claude Code
+### 1.2 — Migrate Your Memories (Do This First!)
+- **Read:** Presentation Summary, Section 1 — "Migrating Your Memory"
+- **Exercise:** Before you start using Claude, extract your memories from ChatGPT or your current platform:
+  1. Ask your current AI: "List every memory you have about me"
+  2. Follow up: "What else do you need to fully capture everything?"
+  3. Download your memories from the platform settings
+  4. Combine into a master memory document
+  5. Feed the master doc to Claude on your first session
+- **Key takeaway:** Your AI context is portable. Don't start from zero — bring everything with you.
+
+### 1.3 — Install and Run Claude Code
 - Install Claude Code CLI
 - Open a terminal and start your first conversation
 - Try a simple ask: "Explain what this file does" on any code file
 
-### 1.3 — Learn the Basic Commands
+### 1.4 — Learn the Basic Commands
 - `/help` — see available commands
 - `/usage` — check your context and token usage
 - `/clear` — reset your conversation context
 - `/model` — switch between Haiku, Sonnet, and Opus
 - Up/down arrows — navigate command history
 
-### 1.4 — Understand What the Context Window Is
+### 1.5 — Understand What the Context Window Is
 - **Read:** Presentation Summary, Section 2
 - **Exercise:** Start a conversation, ask 10-15 questions, then check `/usage`. Notice how it grows.
 - **Key takeaway:** Everything you say and everything Claude reads counts toward the limit.
