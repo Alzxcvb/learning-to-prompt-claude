@@ -28,10 +28,10 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
   5. Feed the master doc to Claude on your first session
 - **Key takeaway:** Your AI context is portable. Don't start from zero — bring everything with you.
 
-### 1.4 — Install GitHub Desktop
-- Download from [desktop.github.com](https://desktop.github.com/) and create a GitHub account if you don't have one
-- This is how you'll manage your code repositories and version history
-- **Key takeaway:** GitHub is where your code lives. Get this set up before writing any code.
+### 1.4 — What Is GitHub?
+- GitHub is where people store and share code — like Google Drive, but for programming
+- You can browse, copy, or download anyone's public code
+- **Exercise:** Go to [github.com/Alzxcvb/learning-to-prompt-claude](https://github.com/Alzxcvb/learning-to-prompt-claude) and download this lesson plan using the green "Code" → "Download ZIP" button.
 
 ### 1.5 — Install and Run Claude Code
 - Install Claude Code CLI

@@ -141,17 +141,22 @@ If you're new to AI coding tools, the open-endedness can be paralyzing. Here's a
 
 Don't try to figure out "the best" project. **Just pick one and start.** You'll learn more in 30 minutes of building than in 3 hours of planning.
 
-### Quick Start for ChatGPT Users
+### What Is GitHub?
 
-1. **Download and install GitHub Desktop** — go to [desktop.github.com](https://desktop.github.com/) and install it. This is how you'll manage your code repositories. Create a GitHub account if you don't have one.
-2. Export your ChatGPT memories (see above)
-3. Install Claude Code CLI
-4. Navigate to your project folder in the terminal
-5. Run `claude` to start a conversation
-6. Paste your master memory file and say "Save this to your memory system"
-7. Try: "Read the README and summarize what this project does"
-8. Try: "List all the files in src/ and explain the project structure"
-9. You're already doing things ChatGPT can't do — with all your context intact
+GitHub is a place where people store and share code and other programming documents. Think of it like Google Drive, but for code. You can browse other people's projects, copy or download their code, and store your own work there.
+
+**Try it now:** Go to [github.com/Alzxcvb/learning-to-prompt-claude](https://github.com/Alzxcvb/learning-to-prompt-claude) — that's this document you're reading right now. Click the green "Code" button and select "Download ZIP" to get a copy. That's it — that's all you need to know about GitHub for now.
+
+### Quick Start for New Users
+
+1. Export your ChatGPT memories (see above)
+2. Install Claude Code CLI
+3. Navigate to your project folder in the terminal
+4. Run `claude` to start a conversation
+5. Paste your master memory file and say "Save this to your memory system"
+6. Try: "Read the README and summarize what this project does"
+7. Try: "List all the files in src/ and explain the project structure"
+8. You're already doing things ChatGPT can't do — with all your context intact
 
 ---
 
