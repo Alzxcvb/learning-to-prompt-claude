@@ -104,16 +104,54 @@ This master document is **platform-independent.** You can:
 
 You're no longer locked into any single AI's memory system. Your context travels with you.
 
+### "What Can I Actually Build With This?"
+
+If you're new to AI coding tools, the open-endedness can be paralyzing. Here's a concrete list of things people are building with Claude Code right now — pick one that excites you and start there:
+
+**Websites & Apps**
+- Build a personal portfolio website from scratch
+- Create a full-stack web app (e-commerce, dashboard, SaaS tool)
+- Make a mobile-responsive landing page for your business or side project
+
+**AI & Automation**
+- Build an AI agent that answers questions about your company's docs
+- Create a Telegram/Discord/Slack bot powered by AI
+- Automate email outreach or lead generation workflows
+- Build an AI model router that picks the best model for each task
+
+**Personal & Health**
+- Generate a detailed nutrition plan tailored to your goals, allergies, and preferences
+- Create a personalized workout program based on your schedule and equipment
+- Build a habit tracker or personal dashboard
+
+**Research & Analysis**
+- Do deep research for a PhD thesis, grant proposal, or market analysis
+- Analyze datasets and generate visualizations
+- Summarize and cross-reference academic papers
+
+**Productivity & Tools**
+- Build internal tools for your team (admin panels, reporting dashboards)
+- Create browser extensions or CLI tools
+- Automate repetitive tasks (data entry, file processing, report generation)
+
+**Learning & Education**
+- Have Claude explain complex codebases to you step by step
+- Build interactive tutorials or learning platforms
+- Create flashcard apps or study tools
+
+Don't try to figure out "the best" project. **Just pick one and start.** You'll learn more in 30 minutes of building than in 3 hours of planning.
+
 ### Quick Start for ChatGPT Users
 
-1. Export your ChatGPT memories (see above)
-2. Install Claude Code CLI
-3. Navigate to your project folder in the terminal
-4. Run `claude` to start a conversation
-5. Paste your master memory file and say "Save this to your memory system"
-6. Try: "Read the README and summarize what this project does"
-7. Try: "List all the files in src/ and explain the project structure"
-8. You're already doing things ChatGPT can't do — with all your context intact
+1. **Download and install GitHub Desktop** — go to [desktop.github.com](https://desktop.github.com/) and install it. This is how you'll manage your code repositories. Create a GitHub account if you don't have one.
+2. Export your ChatGPT memories (see above)
+3. Install Claude Code CLI
+4. Navigate to your project folder in the terminal
+5. Run `claude` to start a conversation
+6. Paste your master memory file and say "Save this to your memory system"
+7. Try: "Read the README and summarize what this project does"
+8. Try: "List all the files in src/ and explain the project structure"
+9. You're already doing things ChatGPT can't do — with all your context intact
 
 ---
 
@@ -214,6 +252,58 @@ Claude Code has a persistent memory system that carries information between conv
 - Git history (Claude can run git log)
 - Debugging solutions (the fix is in the code)
 - Anything already in CLAUDE.md
+
+### CLAUDE.md and Path Files — Giving Claude a Map of Your Project
+
+Claude can read any file in your project, but it doesn't automatically know *where* things are or *how* your project is organized. You can fix this with two tools:
+
+#### CLAUDE.md — Project Instructions
+
+`CLAUDE.md` lives in your project root and acts as a permanent instruction set for Claude. Every conversation loads it automatically. Use it to tell Claude:
+
+- Your project's tech stack and conventions
+- Rules Claude should always follow ("always use TypeScript", "never modify the database schema directly")
+- Where important things live ("API routes are in `src/routes/`", "tests are in `__tests__/`")
+- Any project-specific workflows
+
+```markdown
+# CLAUDE.md
+
+## Tech Stack
+- Frontend: React + TypeScript
+- Backend: Express.js
+- Database: PostgreSQL with Prisma ORM
+
+## Project Structure
+- src/routes/ — API endpoint handlers
+- src/components/ — React UI components
+- src/lib/ — Shared utilities and helpers
+- prisma/schema.prisma — Database schema
+
+## Rules
+- All new API routes must have corresponding tests
+- Use snake_case for database columns, camelCase for TypeScript
+```
+
+#### Path Files — Workshop Shortcuts
+
+For larger projects, you can create **path files** — small reference documents that tell Claude where to find things it needs to work on. Think of them as a table of contents for your codebase.
+
+This is especially useful when you want Claude to **workshop or iterate on specific parts** of your project. Instead of Claude searching through hundreds of files, you point it directly at what matters:
+
+```markdown
+# paths.md (or include in CLAUDE.md)
+
+## Key Files for Feature Work
+- src/auth/login.ts — Login flow, JWT token generation
+- src/auth/middleware.ts — Auth middleware for protected routes
+- src/db/schema.prisma — Database schema (source of truth)
+- src/api/users.ts — User CRUD endpoints
+- src/components/Dashboard.tsx — Main dashboard UI
+- .env.example — Required environment variables
+```
+
+When you start a session, you can tell Claude: "Read paths.md first, then work on the login flow." This saves context window space (Claude doesn't need to explore) and ensures it's looking at the right files.
 
 ---
 

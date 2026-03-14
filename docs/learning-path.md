@@ -6,13 +6,19 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 
 ## Level 1: Getting Started (Day 1)
 
-### 1.1 — Transitioning from ChatGPT / Other Platforms
+### 1.1 — Pick a Project (Don't Freeze!)
+- **Read:** Presentation Summary, Section 1 — "What Can I Actually Build With This?"
+- If "it can do anything" paralyzes you, pick from the list: a website, a workout plan, a bot, a research deep-dive
+- **Exercise:** Pick ONE thing from the list that excites you. Write it down. That's your first project.
+- **Key takeaway:** Don't plan for 3 hours. Pick something and start building in 30 minutes.
+
+### 1.2 — Transitioning from ChatGPT / Other Platforms
 - **Read:** Presentation Summary, Section 1
 - Understand the key differences: Claude works in your real codebase, not a sandbox
 - You don't paste code — Claude reads your files directly
 - **Exercise:** If you've used ChatGPT for coding, try the same task in Claude Code and notice the difference.
 
-### 1.2 — Migrate Your Memories (Do This First!)
+### 1.3 — Migrate Your Memories (Do This First!)
 - **Read:** Presentation Summary, Section 1 — "Migrating Your Memory"
 - **Exercise:** Before you start using Claude, extract your memories from ChatGPT or your current platform:
   1. Ask your current AI: "List every memory you have about me"
@@ -22,12 +28,17 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
   5. Feed the master doc to Claude on your first session
 - **Key takeaway:** Your AI context is portable. Don't start from zero — bring everything with you.
 
-### 1.3 — Install and Run Claude Code
+### 1.4 — Install GitHub Desktop
+- Download from [desktop.github.com](https://desktop.github.com/) and create a GitHub account if you don't have one
+- This is how you'll manage your code repositories and version history
+- **Key takeaway:** GitHub is where your code lives. Get this set up before writing any code.
+
+### 1.5 — Install and Run Claude Code
 - Install Claude Code CLI
 - Open a terminal and start your first conversation
 - Try a simple ask: "Explain what this file does" on any code file
 
-### 1.4 — Learn the Basic Commands
+### 1.6 — Learn the Basic Commands
 - `/help` — see available commands
 - `/usage` — check your context and token usage
 - `/clear` — reset your conversation context
@@ -36,7 +47,7 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 - `Escape` x3 — cancel/interrupt the current response
 - Up/down arrows — navigate command history
 
-### 1.5 — Understand What the Context Window Is
+### 1.7 — Understand What the Context Window Is
 - **Read:** Presentation Summary, Section 2
 - **Exercise:** Start a conversation, ask 10-15 questions, then check `/usage`. Notice how it grows.
 - **Key takeaway:** Everything you say and everything Claude reads counts toward the limit.
@@ -99,8 +110,15 @@ A step-by-step order for learning Claude Code prompting and vibe coding, from ab
 - **Exercise:** Review your memory files after a week. Delete anything that's stale or that Claude can figure out from the code.
 
 ### 4.3 — Set Up CLAUDE.md for Your Project
+- **Read:** Presentation Summary, Section 3 — "CLAUDE.md and Path Files"
 - CLAUDE.md lives in your project root and gives Claude project-specific instructions
 - **Exercise:** Create a CLAUDE.md with your project's key conventions, tech stack, and any rules Claude should follow.
+
+### 4.4 — Create Path Files for Your Project
+- **Read:** Presentation Summary, Section 3 — "Path Files"
+- Path files tell Claude where important files live so it doesn't waste context exploring
+- **Exercise:** Create a `paths.md` (or add a "Key Files" section to your CLAUDE.md) listing the 10-15 most important files in your project with a one-line description of each.
+- **Key takeaway:** Pointing Claude at the right files saves context and gets better results than letting it search.
 
 ---
 
