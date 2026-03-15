@@ -2,7 +2,7 @@
 
 A practical guide to getting the most out of Claude Code for vibe coding and software development.
 
-Built by Alex Coffman, with tips from Ramiro and Jarrett.
+Built by Alex Coffman and Tom.
 
 ## Contents
 
@@ -14,12 +14,17 @@ Built by Alex Coffman, with tips from Ramiro and Jarrett.
 
 | Tip | Key Takeaway |
 |-----|-------------|
-| From ChatGPT | Claude works in your real codebase, not a sandbox |
-| Context Window | Clear context at 30-40% usage |
-| Memory Files | Keep them lean — they eat context too |
-| Prompt Clarity | Write detailed, explicit instructions |
-| Feature Docs | 9-10 docs, one per feature |
+| Migrating | Extract memories before switching platforms |
+| GitHub | Google Drive for code — download this lesson plan |
+| Pick a Project | Don't freeze — pick one and build for 30 min |
+| Memory Files | Keep MEMORY.md under 200 lines, prune regularly |
+| CLAUDE.md | Permanent project instructions in your folder |
+| Path Files | Point Claude at the right files with full pathnames |
+| Context Window | Clear at 30-40% usage |
+| Prompt Quality | Write in a Word doc first, be explicit |
+| Feature Docs | 9-10 FREDs, one per feature |
 | Terminal Windows | One window per feature/task |
-| IDE vs CLI | CLI for building, IDE for reviewing |
-| Token Optimization | Plan your 5-hour rolling windows |
+| App vs CLI | App for chat, CLI for building |
+| CLI vs IDE | CLI first, add IDE later |
+| Token Optimization | 5-hour rolling reset, start early for 2-3x |
 | Model Modes | Haiku=quick, Sonnet=daily, Opus=complex |
