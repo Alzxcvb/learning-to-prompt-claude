@@ -1,5 +1,8 @@
 # Claude Tips, Tricks and Autonomous Agents
 
-Presented by Alex and Tom
+Presented by Alex Coffman & Tom Nguyen
 
-Download the PowerPoint presentation above to get started with Claude Code for vibe coding and software development.
+## Downloads
+
+- **[Claude Tips, Tricks and Autonomous Agents.pptx](Claude%20Tips%2C%20Tricks%20and%20Autonomous%20Agents.pptx)** — Full presentation slides
+- **[Claude Cheat Sheet.md](Claude%20Cheat%20Sheet.md)** — Quick reference cheat sheet for use while working
